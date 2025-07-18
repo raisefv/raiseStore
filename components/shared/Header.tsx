@@ -1,25 +1,42 @@
 import { Input } from "../ui/input";
 import { Heart, ShoppingCart, User } from "lucide-react";
 import Link from "next/link";
+import { Container } from "../ui/Сontainer";
+import Image from "next/image";
 
 export const Header = () => {
   return (
-    <header className="bg-white h-20 flex flex-row gap-4 justify-center items-center rounded-b-xl shadow-lg sticky z-10 top-0 max-w-7xl mx-auto">
-      <Link href="/">
-        <h1 className="text-7xl font-semibold">RR</h1>
-      </Link>
-      <Input type="search" className="max-w-90" placeholder="Поиск.." />
-      <section className="flex flex-row gap-2">
-        <Link href="#">
-          <User size={24} />
-        </Link>
-        <Link href="#">
-          <Heart size={24} />
-        </Link>
-        <Link href="#">
-          <ShoppingCart size={24} />
-        </Link>
-      </section>
-    </header>
+    <Container className="bg-white h-35 sm:h-20 rounded-b-xl shadow-lg sticky z-10 top-0 flex items-center justify-center">
+      <header className="flex flex-col sm:flex-row gap-4 justify-center items-center ">
+        <div className="flex flex-row items-center gap-4">
+          <Link href="/">
+            <Image
+              className="order-1"
+              src={"/logo.svg"}
+              alt="logo"
+              width={64}
+              height={64}
+            />
+          </Link>
+          <section className="order-2 sm:order-3 flex flex-row gap-2">
+            <Link href="#">
+              <User size={24} />
+            </Link>
+            <Link href="#">
+              <Heart size={24} />
+            </Link>
+            <Link href="#">
+              <ShoppingCart size={24} />
+            </Link>
+          </section>
+        </div>
+
+        <Input
+          type="search"
+          className="order-3 sm:order-2 w-75"
+          placeholder="Поиск.."
+        />
+      </header>
+    </Container>
   );
 };

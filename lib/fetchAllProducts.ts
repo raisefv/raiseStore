@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://fakestoreapi.com/products?category=clothing";
+const BASE_URL = "https://fakestoreapi.com/products/";
 
 export interface IProduct {
   id: number;
@@ -9,7 +9,7 @@ export interface IProduct {
   image: string;
 }
 
-export const fetchProducts = async (): Promise<IProduct[]> => {
+export const fetchAllProducts = async (): Promise<IProduct[]> => {
   try {
     const res = await axios.get<IProduct[]>(BASE_URL);
     return res.data;
